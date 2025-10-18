@@ -13,6 +13,8 @@ public class InputView {
         if (input == null) {
             return null;
         }
+
+        // 앞뒤 공백 제거
         return input.trim();
     }
 }
