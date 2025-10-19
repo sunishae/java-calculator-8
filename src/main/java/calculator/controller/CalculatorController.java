@@ -5,6 +5,7 @@ import calculator.view.InputView;
 import calculator.view.OutputView;
 
 public class CalculatorController {
+
     private final InputView inputView;
     private final OutputView outputView;
     private final StringAddCalculator calculator;
@@ -16,13 +17,13 @@ public class CalculatorController {
     }
 
     public void run() {
-        // 1. 입력 받기
+        // 입력
         String inputText = inputView.readInputText();
 
-        // 2. 계산
+        // 계산
         int result = calculator.calculate(inputText);
 
-        // 3. 출력
+        // 출력
         outputView.printResult(result);
     }
 }
