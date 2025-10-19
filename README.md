@@ -32,7 +32,7 @@
     - 숫자 이외의 문자 입력 시
     - IllegalArgumentException 처리
 
----
+
 
 ## 📁 파일 구조 및 설계
 
@@ -40,17 +40,16 @@
 
 최대한 단일책임원(SRP)을 기반으로 핵심 로직을 View/Controller와 분리하여 설계하였습니다.
 
-src/main/java/calculator
+    src/main/java/calculator
+    ├── Application.java          // 프로그램 실행의 시작점 (main)
+    ├── controller
+    └── CalculatorController.java   // 입출력 흐름 제어 및 최종 예외 처리 책임
+    ├── view
+    │   ├── InputView.java          // 사용자 입력 담당 (Console.readLine)
+    │   └── OutputView.java         // 결과 출력 담당
+    └── domain                      // 핵심 로직 
+    ├── StringAddCalculator.java  // 계산 흐름 총괄 및 최종 합산 책임
+    ├── StringParser.java         // 문자열 파싱, 구분자 추출 및 유효하지 않은 구분자 검증 책임
+    └── PositiveNumber.java       // 숫자 변환, 음수/0/숫자 외 문자 유효성 검증 책임
 
-├── Application.java          // 프로그램 실행의 시작점 (main)
-├── controller
-│   └── CalculatorController.java   // 입출력 흐름 제어 및 최종 예외 처리 책임
-├── view
-│   ├── InputView.java          // 사용자 입력 담당 (Console.readLine)
-│   └── OutputView.java         // 결과 출력 담당
-└── domain                      // 핵심 로직 
-├── StringAddCalculator.java  // 계산 흐름 총괄 및 최종 합산 책임
-├── StringParser.java         // 문자열 파싱, 구분자 추출 및 유효하지 않은 구분자 검증 책임
-└── PositiveNumber.java       // 숫자 변환, 음수/0/숫자 외 문자 유효성 검증 책임
-
-
+---
